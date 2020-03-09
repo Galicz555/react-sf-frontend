@@ -3,6 +3,7 @@ import { Todos } from './components/Todos';
 import AddTodo from './components/AddTodo';
 import './App.css';
 import Header from './components/layout/Header';
+import uuid from 'uuid/v4';
 
 class App extends Component {
   state = {
@@ -45,8 +46,13 @@ class App extends Component {
   };
 
   // add todo
-  addTodo = (title) => {
-    console.log(title);
+  addTodo = title => {
+    const newTodo = {
+      id: uuid.v4(),
+      title,
+      completed: false
+    };
+    this.setState({ todos: [...this.state.todos, newTodo] });
   };
 
   render() {
