@@ -1,17 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-export default function navbar() {
+export default function Header() {
   return (
     <div>
       <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">
+        <Link class="navbar-brand" to="/">
           <img
             src="https://images5.alphacoders.com/587/thumb-1920-587597.jpg"
             width="30"
             height="30"
             alt="not found"
           />
-        </a>
+        </Link>
         <button
           class="navbar-toggler"
           type="button"
@@ -27,24 +28,24 @@ export default function navbar() {
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link">
+              <Link class="nav-link" to="/">
                 Dungeon<span class="sr-only">(current)</span>
-              </a>
+              </Link>
             </li>
             <li class="nav-item">
-              <a class="nav-link">
+              <Link class="nav-link" to="/">
                 Csapat
-              </a>
+              </Link>
             </li>
             <li class="nav-item">
-              <a class="nav-link">
+              <Link class="nav-link" to="/">
                 Hajó
-              </a>
+              </Link>
             </li>
             <li class="nav-item dropdown">
-              <a
+              <Link
                 class="nav-link dropdown-toggle"
-                href="#"
+                to="/"
                 id="navbarDropdown"
                 role="button"
                 data-toggle="dropdown"
@@ -52,24 +53,24 @@ export default function navbar() {
                 aria-expanded="false"
               >
                 Extrák
-              </a>
+              </Link>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item">
+                <Link class="dropdown-item" to="/">
                   Aranyköpések
-                </a>
-                <a class="dropdown-item">
+                </Link>
+                <Link class="dropdown-item" to="/">
                   Képek
-                </a>
+                </Link>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item">
+                <Link class="dropdown-item" to="/about">
                   Kontakt
-                </a>
+                </Link>
               </div>
             </li>
           </ul>
-          <a class="nav-item log">
+          <Link class="nav-item log" to="/">
             Kilépés
-          </a>
+          </Link>
         </div>
       </nav>
     </div>
