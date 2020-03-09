@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 // import { Todos } from './components/Todos';
 // import AddTodo from './components/AddTodo';
 // import About from './components/pages/About';
-import './App.css';
+import './App.sass';
 // import Header from './components/layout/Header';
 // import { v4 as uuidv4 } from 'uuid';
 import Axios from 'axios';
@@ -54,25 +54,23 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <div className="container">
-            <Header />
-            <Route
-              exact
-              path="/"
-              render={props => (
-                <React.Fragment>
-                  lol nav
-                  {/* <AddTodo addTodo={this.addTodo} />
+          <Header />
+          <Route
+            exact
+            path="/"
+            render={props => (
+              <React.Fragment>
+                lol nav
+                {/* <AddTodo addTodo={this.addTodo} />
                   <Todos
                     todos={this.state.todos}
                     markComplete={this.markComplete}
                     delTodo={this.delTodo} */}
-                  {/* /> */}
-                </React.Fragment>
-              )}
-            />
-            <Route path="/about" component={About} />
-          </div>
+                {/* /> */}
+              </React.Fragment>
+            )}
+          />
+          <Route path="/about" component={About} />
         </div>
       </Router>
     );
@@ -80,4 +78,3 @@ class App extends Component {
 }
 
 export default App;
-
