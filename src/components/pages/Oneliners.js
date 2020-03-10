@@ -1,9 +1,7 @@
-import React from 'react'
+import React, { Component } from 'react';
 
-export default function Oneliners() {
-  return (
-    <div>
-      Oneliners
-    </div>
-  )
+export default class Oneliners extends Component {
+  render() {
+    return <div>Oneliners</div>;
+  }
 }

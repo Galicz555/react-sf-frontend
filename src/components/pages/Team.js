@@ -1,9 +1,7 @@
-import React from 'react'
+import React, { Component } from 'react';
 
-export default function Team() {
-  return (
-    <div>
-      Team
-    </div>
-  )
+export default class Team extends Component {
+  render() {
+    return <div>Team</div>;
+  }
 }

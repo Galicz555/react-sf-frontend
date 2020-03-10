@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-export default function Main() {
-  return (
-    <div>
-      Main
-    </div>
-  )
+export default class Main extends Component {
+  render() {
+    return (
+      <div>
+        Main
+      </div>
+    )
+  }
 }

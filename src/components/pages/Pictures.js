@@ -1,9 +1,7 @@
-import React from 'react'
+import React, { Component } from 'react';
 
-export default function Pictures() {
-  return (
-    <div>
-      Pictures
-    </div>
-  )
+export default class Pictures extends Component {
+  render() {
+    return <div>Pictures</div>;
+  }
 }

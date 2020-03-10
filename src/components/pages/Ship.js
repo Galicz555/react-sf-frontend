@@ -1,9 +1,7 @@
-import React from 'react'
+import React, { Component } from 'react';
 
-export default function Ship() {
-  return (
-    <div>
-      Ship
-    </div>
-  )
+export default class Ship extends Component {
+  render() {
+    return <div>Ship</div>;
+  }
 }

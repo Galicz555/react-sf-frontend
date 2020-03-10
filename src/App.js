@@ -17,6 +17,8 @@ import Pictures from './components/pages/Pictures';
 import Login from './components/pages/Login';
 import Register from './components/pages/Register';
 
+
+const url = "http://localhost:5000/"
 class App extends Component {
   state = {
     // todos: []
@@ -49,13 +51,13 @@ class App extends Component {
   //   );
   // };
 
-  // // add todo
-  // addTodo = title => {
-  //   Axios.post('https://jsonplaceholder.typicode.com/todos', {
-  //     title,
-  //     completed: false
-  //   }).then(res => this.setState({ todos: [...this.state.todos, res.data] }));
-  // };
+  // add todo
+  login = (username, password) => {
+    Axios.post(`${url}login`, {
+      username,
+      password
+    }).then(res => this.setState({ todos: [...this.state.todos, res.data] }));
+  };
 
   render() {
     return (
@@ -66,9 +68,9 @@ class App extends Component {
             exact
             path="/"
             component={Login}
+            login={this.login}
             // render={props => (
             //   <React.Fragment>
-            //     lol login
             //     <AddTodo addTodo={this.addTodo} />
             //       <Todos
             //         todos={this.state.todos}
