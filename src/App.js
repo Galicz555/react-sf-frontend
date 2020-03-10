@@ -9,6 +9,13 @@ import './App.sass';
 import Axios from 'axios';
 import Header from './components/layout/Header';
 import About from './components/pages/About';
+import Main from './components/pages/Main';
+import Team from './components/pages/Team';
+import Ship from './components/pages/Ship';
+import Oneliners from './components/pages/Oneliners';
+import Pictures from './components/pages/Pictures';
+import Login from './components/pages/Login';
+import Register from './components/pages/Register';
 
 class App extends Component {
   state = {
@@ -54,23 +61,30 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Header />
+          <Route path="/space" component={Header} />
           <Route
             exact
             path="/"
-            render={props => (
-              <React.Fragment>
-                lol nav
-                {/* <AddTodo addTodo={this.addTodo} />
-                  <Todos
-                    todos={this.state.todos}
-                    markComplete={this.markComplete}
-                    delTodo={this.delTodo} */}
-                {/* /> */}
-              </React.Fragment>
-            )}
+            component={Login}
+            // render={props => (
+            //   <React.Fragment>
+            //     lol login
+            //     <AddTodo addTodo={this.addTodo} />
+            //       <Todos
+            //         todos={this.state.todos}
+            //         markComplete={this.markComplete}
+            //         delTodo={this.delTodo}
+            //     />
+            //   </React.Fragment>
+            // )}
           />
-          <Route path="/about" component={About} />
+          <Route path="/register" component={Register} />
+          <Route path="/space/about" component={About} />
+          <Route path="/space/main" component={Main} />
+          <Route path="/space/team" component={Team} />
+          <Route path="/space/ship" component={Ship} />
+          <Route path="/space/pictures" component={Pictures} />
+          <Route path="/space/oneliners" component={Oneliners} />
         </div>
       </Router>
     );

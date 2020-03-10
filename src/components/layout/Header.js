@@ -29,17 +29,17 @@ export default function Header() {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item active">
-            <Link className="nav-link" to="/">
+            <Link className="nav-link" to="/space/main">
               Dungeon<span className="sr-only">(current)</span>
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/">
+            <Link className="nav-link" to="/space/team">
               Csapat
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/">
+            <Link className="nav-link" to="/space/ship">
               Hajó
             </Link>
           </li>
@@ -56,14 +56,14 @@ export default function Header() {
               Extrák
             </Link>
             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-              <Link className="dropdown-item" to="/">
+              <Link className="dropdown-item" to="/space/oneliners">
                 Aranyköpések
               </Link>
-              <Link className="dropdown-item" to="/">
+              <Link className="dropdown-item" to="/space/pictures">
                 Képek
               </Link>
               <div className="dropdown-divider"></div>
-              <Link className="dropdown-item" to="/about">
+              <Link className="dropdown-item" to="/space/about">
                 Kontakt
               </Link>
             </div>
