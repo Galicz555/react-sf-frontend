@@ -16,9 +16,9 @@ import Oneliners from './components/pages/Oneliners';
 import Pictures from './components/pages/Pictures';
 import Login from './components/pages/Login';
 import Register from './components/pages/Register';
+import AuthenticatedComponent from './components/AuthenticatedComponent';
 
-
-const url = "http://localhost:5000/"
+// const url = 'http://localhost:5000/';
 class App extends Component {
   state = {
     // todos: []
@@ -52,12 +52,12 @@ class App extends Component {
   // };
 
   // add todo
-  login = (username, password) => {
-    Axios.post(`${url}login`, {
-      username,
-      password
-    }).then(res => this.setState({ todos: [...this.state.todos, res.data] }));
-  };
+  // login = (username, password) => {
+  //   Axios.post(`${url}login`, {
+  //     username,
+  //     password
+  //   }).then(res => this.setState({ todos: [...this.state.todos, res.data] }));
+  // };
 
   render() {
     return (
@@ -87,6 +87,7 @@ class App extends Component {
           <Route path="/space/ship" component={Ship} />
           <Route path="/space/pictures" component={Pictures} />
           <Route path="/space/oneliners" component={Oneliners} />
+          <Route path="/auth" component={AuthenticatedComponent} />
         </div>
       </Router>
     );
