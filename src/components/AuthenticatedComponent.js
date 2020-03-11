@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { getJwt } from './helpers/jwt';
 import Axios from 'axios';
-import {withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
-export default class AuthenticatedComponent extends withRouter(Component){
+class AuthenticatedComponent extends Component {
   constructor(props) {
     super(props);
 
@@ -17,8 +17,9 @@ export default class AuthenticatedComponent extends withRouter(Component){
     if (!jwt) {
       this.props.history.push('/login');
     }
+    console.log(jwt)
 
-    Axios.get('/getUser/:id', {
+    Axios.get('/getId', {
       headers: { Autherization: `Bearer ${jwt.accessToken}` }
     })
       .then(res =>
@@ -34,7 +35,7 @@ export default class AuthenticatedComponent extends withRouter(Component){
   }
 
   render() {
-    if (this.user.state === undefined) {
+    if (this.state.id === undefined) {
       return (
         <div>
           <h1>Loading</h1>
@@ -44,3 +45,5 @@ export default class AuthenticatedComponent extends withRouter(Component){
     return <div>{this.props.children}</div>;
   }
 }
+
+export default withRouter(AuthenticatedComponent);
