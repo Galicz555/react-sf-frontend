@@ -17,6 +17,7 @@ import Pictures from './components/pages/Pictures';
 import Login from './components/pages/Login';
 import Register from './components/pages/Register';
 import AuthenticatedComponent from './components/AuthenticatedComponent';
+import Protected from './components/pages/Protected';
 
 // const url = 'http://localhost:5000/';
 class App extends Component {
@@ -87,7 +88,9 @@ class App extends Component {
           <Route path="/space/ship" component={Ship} />
           <Route path="/space/pictures" component={Pictures} />
           <Route path="/space/oneliners" component={Oneliners} />
-          <Route path="/auth" component={AuthenticatedComponent} />
+          <AuthenticatedComponent>
+            <Route path="/Protected" component={Protected} />
+          </AuthenticatedComponent>
         </div>
       </Router>
     );

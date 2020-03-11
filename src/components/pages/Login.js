@@ -9,7 +9,7 @@ export default class Login extends Component {
 
     this.state = {
       username: '',
-      password: '',
+      password: ''
     };
 
     this.change = this.change.bind(this);
@@ -28,7 +28,10 @@ export default class Login extends Component {
       username: this.state.username,
       password: this.state.password
     })
-      .then(res => localStorage.setItem('cool-jwt', res.data))
+      .then(res => {
+        localStorage.setItem('access_token', res.data.accessToken);
+        localStorage.setItem('refresh_token', res.data.refreshToken);
+      })
       .catch(err => alert('Incorrect Username and/or Password!'));
   }
 
