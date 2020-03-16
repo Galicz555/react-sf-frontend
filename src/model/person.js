@@ -515,37 +515,37 @@ class person {
   }
 
   babCalc() {
-    if (this.level == 1) {
+    if (this.level === 1) {
       return 0;
-    } else if (this.level == 2) {
+    } else if (this.level === 2) {
       return 1;
-    } else if (this.level == 3) {
+    } else if (this.level === 3) {
       return 2;
-    } else if (this.level == 4 || this.level == 5) {
+    } else if (this.level === 4 || this.level === 5) {
       return 3;
-    } else if (this.level == 6) {
+    } else if (this.level === 6) {
       return 4;
-    } else if (this.level == 7) {
+    } else if (this.level === 7) {
       return 5;
-    } else if (this.level == 8 || this.level == 9) {
+    } else if (this.level === 8 || this.level === 9) {
       return 6;
-    } else if (this.level == 10) {
+    } else if (this.level === 10) {
       return 7;
-    } else if (this.level == 11) {
+    } else if (this.level === 11) {
       return 8;
-    } else if (this.level == 12 || this.level == 13) {
+    } else if (this.level === 12 || this.level === 13) {
       return 9;
-    } else if (this.level == 14) {
+    } else if (this.level === 14) {
       return 10;
-    } else if (this.level == 15) {
+    } else if (this.level === 15) {
       return 11;
-    } else if (this.level == 16 || this.level == 17) {
+    } else if (this.level === 16 || this.level === 17) {
       return 12;
-    } else if (this.level == 18) {
+    } else if (this.level === 18) {
       return 13;
-    } else if (this.level == 19) {
+    } else if (this.level === 19) {
       return 14;
-    } else if (this.level == 20) {
+    } else if (this.level === 20) {
       return 15;
     }
   }

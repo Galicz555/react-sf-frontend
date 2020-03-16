@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.sass';
 // import Header from './components/layout/Header';
 // import { v4 as uuidv4 } from 'uuid';
-import Axios from 'axios';
+// import Axios from 'axios';
 import Header from './components/layout/Header';
 import About from './components/pages/About';
 import Main from './components/pages/Main';
