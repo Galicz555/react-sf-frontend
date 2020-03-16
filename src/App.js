@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // import { Todos } from './components/Todos';
 // import AddTodo from './components/AddTodo';
 // import About from './components/pages/About';
@@ -17,7 +17,6 @@ import Pictures from './components/pages/Pictures';
 import Login from './components/pages/Login';
 import Register from './components/pages/Register';
 import AuthenticatedComponent from './components/AuthenticatedComponent';
-import Protected from './components/pages/Protected';
 
 // const url = 'http://localhost:5000/';
 class App extends Component {
@@ -64,33 +63,34 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Route path="/space" component={Header} />
-          <Route
-            exact
-            path="/"
-            component={Login}
-            login={this.login}
-            // render={props => (
-            //   <React.Fragment>
-            //     <AddTodo addTodo={this.addTodo} />
-            //       <Todos
-            //         todos={this.state.todos}
-            //         markComplete={this.markComplete}
-            //         delTodo={this.delTodo}
-            //     />
-            //   </React.Fragment>
-            // )}
-          />
-          <Route path="/register" component={Register} />
-          <Route path="/space/about" component={About} />
-          <Route path="/space/main" component={Main} />
-          <Route path="/space/team" component={Team} />
-          <Route path="/space/ship" component={Ship} />
-          <Route path="/space/pictures" component={Pictures} />
-          <Route path="/space/oneliners" component={Oneliners} />
-          <AuthenticatedComponent>
-            <Route path="/Protected" component={Protected} />
-          </AuthenticatedComponent>
+          <Switch>
+            <Route
+              exact
+              path="/"
+              component={Login}
+              login={this.login}
+              // render={props => (
+              //   <React.Fragment>
+              //     <AddTodo addTodo={this.addTodo} />
+              //       <Todos
+              //         todos={this.state.todos}
+              //         markComplete={this.markComplete}
+              //         delTodo={this.delTodo}
+              //     />
+              //   </React.Fragment>
+              // )}
+            />
+            <Route path="/register" component={Register} />
+            <AuthenticatedComponent>
+              <Route path="/space" component={Header} />
+              <Route path="/space/about" component={About} />
+              <Route path="/space/main" component={Main} />
+              <Route path="/space/team" component={Team} />
+              <Route path="/space/ship" component={Ship} />
+              <Route path="/space/pictures" component={Pictures} />
+              <Route path="/space/oneliners" component={Oneliners} />
+            </AuthenticatedComponent>
+          </Switch>
         </div>
       </Router>
     );

@@ -17,10 +17,9 @@ class AuthenticatedComponent extends Component {
     if (!jwt) {
       this.props.history.push('/login');
     }
-    console.log(jwt)
 
-    Axios.get('/getId', {
-      headers: { Autherization: `Bearer ${jwt.accessToken}` }
+    Axios.get('http://localhost:5000/getId', {
+      headers: { Authorization: `Bearer ${jwt.accessToken}` }
     })
       .then(res =>
         this.setState({

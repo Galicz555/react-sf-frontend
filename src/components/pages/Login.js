@@ -31,6 +31,7 @@ export default class Login extends Component {
       .then(res => {
         localStorage.setItem('access_token', res.data.accessToken);
         localStorage.setItem('refresh_token', res.data.refreshToken);
+        this.props.history.push('/space/main')
       })
       .catch(err => alert('Incorrect Username and/or Password!'));
   }
