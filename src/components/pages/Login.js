@@ -39,7 +39,7 @@ export default class Login extends Component {
   render() {
     return (
       <div className="login-dark">
-        <form onSubmit={e => this.submit(e)}>
+        <form className="log" onSubmit={e => this.submit(e)}>
           <h2 className="sr-only">Login Form</h2>
           <div className="form-group">
             <input

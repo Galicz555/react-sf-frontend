@@ -5,7 +5,7 @@ export default class Register extends Component {
   render() {
     return (
       <div className="register-dark">
-        <form method="post">
+        <form className="regForm" method="post">
           <h2 className="reg">Create an account</h2>
           <div className="form-group">
             <input

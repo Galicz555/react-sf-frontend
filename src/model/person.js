@@ -1,4 +1,5 @@
-class person {
+
+export class person {
   id;
   charName;
   sfSocitey;

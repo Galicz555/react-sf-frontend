@@ -28,7 +28,7 @@ body
   background-position: center
   position: relative
 
-.login-dark form
+.login-dark .log
   max-width: 320px
   width: 90%
   background-color: #1e2833
@@ -41,7 +41,7 @@ body
   color: #fff
   box-shadow: 3px 3px 4px rgba(0,0,0,0.2)
 
-.login-dark form .form-control
+.login-dark .log .form-control
   background: none
   border: none
   border-bottom: 1px solid #434a52
@@ -50,7 +50,7 @@ body
   outline: none
   color: inherit
 
-.login-dark form .btn-primary
+.login-dark .log .btn-primary
   background: #214a80
   border: none
   border-radius: 4px
@@ -60,11 +60,11 @@ body
   text-shadow: none
   outline: none
 
-.login-dark form .btn-primary:hover, .login-dark form .btn-primary:active
+.login-dark .log .btn-primary:hover, .login-dark .log .btn-primary:active
   background: #214a80
   outline: none
 
-.login-dark form .forgot
+.login-dark .log .forgot
   display: block
   text-align: center
   font-size: 12px
@@ -72,11 +72,11 @@ body
   opacity: 0.9
   text-decoration: none
 
-.login-dark form .forgot:hover, .login-dark form .forgot:active
+.login-dark .log .forgot:hover, .login-dark .log .forgot:active
   opacity: 1
   text-decoration: none
 
-.login-dark form .btn-primary:active
+.login-dark .log .btn-primary:active
   transform: translateY(1px)
 
 //register
@@ -94,7 +94,7 @@ body
   background-position: center
   position: relative
 
-.register-dark form
+.register-dark .regForm
   max-width: 320px
   width: 90%
   background-color: #1e2833
@@ -107,7 +107,7 @@ body
   color: #fff
   box-shadow: 3px 3px 4px rgba(0,0,0,0.2)
 
-.register-dark form .form-control
+.register-dark .regForm .form-control
   background: none
   border: none
   border-bottom: 1px solid #434a52
@@ -116,7 +116,7 @@ body
   outline: none
   color: inherit
 
-.register-dark form .btn-primary
+.register-dark .regForm .btn-primary
   background: #214a80
   border: none
   border-radius: 4px
@@ -126,11 +126,11 @@ body
   text-shadow: none
   outline: none
 
-.register-dark form .btn-primary:hover, .register-dark form .btn-primary:active
+.register-dark .regForm .btn-primary:hover, .register-dark .regForm .btn-primary:active
   background: #214a80
   outline: none
 
-.register-dark form .forgot
+.register-dark .regForm .forgot
   display: block
   text-align: center
   font-size: 12px
@@ -138,9 +138,24 @@ body
   opacity: 0.9
   text-decoration: none
 
-.register-dark form .forgot:hover, .register-dark form .forgot:active
+.register-dark .regForm .forgot:hover, .register-dark .regForm .forgot:active
   opacity: 1
   text-decoration: none
 
-.register-dark form .btn-primary:active
+.register-dark .regForm .btn-primary:active
   transform: translateY(1px)
+
+
+//team
+
+label
+  display: block
+
+.xlab
+  opacity: 100%
+
+.notes 
+  background-attachment: local
+  background-image: linear-gradient(to right, white 10px, transparent 10px), linear-gradient(to left, white 10px, transparent 10px), repeating-linear-gradient(white, white 30px, #ccc 30px, #ccc 31px, white 31px)
+  line-height: 31px
+  padding: 8px 10px

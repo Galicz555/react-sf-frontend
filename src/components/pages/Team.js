@@ -11,7 +11,8 @@ export default class Team extends Component {
       hero: {},
       id: 1,
       charname: '',
-      level: ''
+      level: '',
+      class: ''
     };
 
     this.change = this.change.bind(this);
@@ -97,11 +98,29 @@ export default class Team extends Component {
                   />
                 </label>
               </div>
+            </div>
+
+            <div className="form-row">
               <div className="form-group col">
+                <label>
+                  Kasztok:
+                  <textarea
+                    className="form-control notes"
+                    name="class"
+                    rows="3"
+                    placeholder={this.state.hero.class}
+                    value={this.state.class}
+                    onChange={e => this.change(e)}
+                  />
+                </label>
+              </div>
+            </div>
+            <div className="form-group">
+              <label className="xlab">
                 <button className="btn btn-primary btn-block" type="submit">
                   Frissítés
                 </button>
-              </div>
+              </label>
             </div>
           </form>
         </div>
