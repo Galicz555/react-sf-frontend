@@ -1,11 +1,27 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchId } from  '../../actions/idActions';
 
-export default class Main extends Component {
+class Main extends Component {
+  componentDidMount() {
+    this.props.fetchId();
+  }
+
+  activateLasers(){
+    console.log(mapStateToProps)
+  }
+
   render() {
     return (
-      <div>
+      <div onClick={this.activateLasers}>
         Main
       </div>
     )
   }
 }
+
+const mapStateToProps = state => ({
+  userId: state.userId.items
+})
+
+export default connect(mapStateToProps, { fetchId })(Main)

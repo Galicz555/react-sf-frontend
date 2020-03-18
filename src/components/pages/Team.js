@@ -14,7 +14,12 @@ export default class Team extends Component {
       level: '',
       class: '',
       race: '',
-      theme: ''
+      gender: '',
+      theme: '',
+      homeWorld: '',
+      aligment: '',
+      diety: '',
+      player: ''
     };
 
     this.change = this.change.bind(this);
@@ -54,7 +59,12 @@ export default class Team extends Component {
         sfSociety: this.state.sfSociety,
         level: this.state.level,
         race: this.state.race,
+        gender: this.state.gender,
         theme: this.state.theme,
+        homeWorld: this.state.homeWorld,
+        aligment: this.state.aligment,
+        diety: this.state.diety,
+        player: this.state.player,
         speed: this.state.speed
       },
       options
@@ -66,118 +76,173 @@ export default class Team extends Component {
   render() {
     return (
       <div>
-        <div>
-          <h2>Személyes adatok</h2>
-          <form className="charSheet" onSubmit={e => this.submit(e)}>
-            <div className="form-row">
-              <div className="form-group col-md-6">
-                <label>
-                  Karakter neve:
-                  <input
-                    className="form-control"
-                    type="text"
-                    name="charname"
-                    placeholder={this.state.charname}
-                    onChange={e => this.change(e)}
-                    value={this.state.charname}
-                  />
-                </label>
-              </div>
-              <div className="form-group col-md-1 col-sm-2">
-                <label>
-                  Szint:
-                  <input
-                    className="form-control"
-                    type="number"
-                    name="level"
-                    placeholder={this.state.level}
-                    onChange={e => this.change(e)}
-                    value={this.state.level}
-                  />
-                </label>
-              </div>
-              <div className="form-group col-md-5 col-sm-10">
-                <label>
-                  Starfinder közösség:
-                  <input
-                    className="form-control"
-                    type="text"
-                    name="sfSociety"
-                    placeholder={this.state.sfSociety}
-                    onChange={e => this.change(e)}
-                    value={this.state.sfSociety}
-                  />
-                </label>
-              </div>
+        <h2>Személyes adatok</h2>
+        <form className="charSheet" onSubmit={e => this.submit(e)}>
+          <div className="form-row">
+            <div className="form-group col-md-6">
+              <label>
+                Karakter neve:
+                <input
+                  className="form-control"
+                  type="text"
+                  name="charname"
+                  placeholder={this.state.charname}
+                  onChange={e => this.change(e)}
+                  value={this.state.charname}
+                />
+              </label>
             </div>
+            <div className="form-group col-md-1 col-sm-2">
+              <label>
+                Szint:
+                <input
+                  className="form-control"
+                  type="number"
+                  name="level"
+                  placeholder={this.state.level}
+                  onChange={e => this.change(e)}
+                  value={this.state.level}
+                />
+              </label>
+            </div>
+            <div className="form-group col-md-5 col-sm-10">
+              <label>
+                Starfinder közösség:
+                <input
+                  className="form-control"
+                  type="text"
+                  name="sfSociety"
+                  placeholder={this.state.sfSociety}
+                  onChange={e => this.change(e)}
+                  value={this.state.sfSociety}
+                />
+              </label>
+            </div>
+          </div>
 
-            <div className="form-row">
-              <div className="form-group col-sm">
-                <label>
-                  Kasztok:
-                  <textarea
-                    className="form-control notes"
-                    name="class"
-                    rows="1"
-                    placeholder={this.state.class}
-                    value={this.state.class}
-                    onChange={e => this.change(e)}
-                  />
-                </label>
-              </div>
-              {/* <div className="form-group -sm">
+          <div className="form-row">
+            <div className="form-group col-sm">
+              <label>
+                Kasztok:
+                <textarea
+                  className="form-control notes"
+                  name="class"
+                  rows="1"
+                  placeholder={this.state.class}
+                  value={this.state.class}
+                  onChange={e => this.change(e)}
+                />
+              </label>
+            </div>
+            {/* <div className="form-group -sm">
                 Speed:
                 <div>{this.state.speed}</div>
               </div> */}
-              <div className="form-group col-sm">
-                <label>
-                  Háttér:
-                  <input
-                    className="form-control"
-                    type="text"
-                    name="theme"
-                    placeholder={this.state.theme}
-                    onChange={e => this.change(e)}
-                    value={this.state.theme}
-                  />
-                </label>
-              </div>
-              <div className="form-group col-sm">
-                <label>
-                  Faj:
-                  <input
-                    className="form-control"
-                    type="text"
-                    name="race"
-                    placeholder={this.state.race}
-                    onChange={e => this.change(e)}
-                    value={this.state.race}
-                  />
-                </label>
-              </div>
-            </div>
-            <div className="form-group">
-              <label className="xlab">
-                <button className="btn btn-primary btn-block" type="submit">
-                  Frissítés
-                </button>
+            <div className="form-group col-sm">
+              <label>
+                Háttér:
+                <input
+                  className="form-control"
+                  type="text"
+                  name="theme"
+                  placeholder={this.state.theme}
+                  onChange={e => this.change(e)}
+                  value={this.state.theme}
+                />
               </label>
             </div>
-          </form>
-        </div>
+            <div className="form-group col-sm">
+              <label>
+                Faj:
+                <input
+                  className="form-control"
+                  type="text"
+                  name="race"
+                  placeholder={this.state.race}
+                  onChange={e => this.change(e)}
+                  value={this.state.race}
+                />
+              </label>
+            </div>
+          </div>
 
-        <div>Karakter név: {this.state.charname}</div>
-        <div>Starfinder közösség: {this.state.sfSociety}</div>
-        <div>Kaszt: {this.state.class}</div>
-        <div>Szint: {this.state.level}</div>
-        <div>Faj: {this.state.race}</div>
-        <div>Háttér: {this.state.theme}</div>
-        <div>Sebesség: {this.state.speed}</div>
-        <div>Nem: {this.state.gender}</div>
-        <div>Szülőbolygó: {this.state.homeWorld}</div>
-        <div>Jellem: {this.state.aligment}</div>
-        <div>Vallás: {this.state.diety}</div>
-        <div>Játékos neve: {this.state.player}</div>
+          <div className="form-row">
+            <div className="form-group col-sm">
+              <label>
+                Nem:
+                <input
+                  className="form-control"
+                  name="gender"
+                  placeholder={this.state.gender}
+                  value={this.state.gender}
+                  onChange={e => this.change(e)}
+                />
+              </label>
+            </div>
+            <div className="form-group col-sm">
+              <label>
+                Szülőbolygó:
+                <input
+                  className="form-control"
+                  type="text"
+                  name="homeWorld"
+                  placeholder={this.state.homeWorld}
+                  onChange={e => this.change(e)}
+                  value={this.state.homeWorld}
+                />
+              </label>
+            </div>
+            <div className="form-group col-sm">
+              <label>
+                Jellem:
+                <input
+                  className="form-control"
+                  type="text"
+                  name="aligment"
+                  placeholder={this.state.aligment}
+                  onChange={e => this.change(e)}
+                  value={this.state.aligment}
+                />
+              </label>
+            </div>
+          </div>
+
+          <div className="form-row">
+            <div className="form-group col-sm">
+              <label>
+                Vallás:
+                <input
+                  className="form-control"
+                  name="diety"
+                  placeholder={this.state.diety}
+                  value={this.state.diety}
+                  onChange={e => this.change(e)}
+                />
+              </label>
+            </div>
+            <div className="form-group col-sm">
+              <label>
+                Játékos neve:
+                <input
+                  className="form-control"
+                  type="text"
+                  name="player"
+                  placeholder={this.state.player}
+                  onChange={e => this.change(e)}
+                  value={this.state.player}
+                />
+              </label>
+            </div>
+          </div>
+          <div className="form-group">
+            <label className="xlab">
+              <button className="btn btn-primary btn-block" type="submit">
+                Frissítés
+              </button>
+            </label>
+          </div>
+        </form>
+        <div>lol{this.props.id}</div>
       </div>
     );
   }
