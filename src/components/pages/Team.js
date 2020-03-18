@@ -8,11 +8,13 @@ export default class Team extends Component {
     super(props);
 
     this.state = {
-      hero: {},
       id: 1,
       charname: '',
+      sfSociety: '',
       level: '',
-      class: ''
+      class: '',
+      race: '',
+      theme: ''
     };
 
     this.change = this.change.bind(this);
@@ -31,11 +33,7 @@ export default class Team extends Component {
         Authorization: `Bearer ${localStorage.getItem('access_token')}`
       }
     })
-      .then(res =>
-        this.setState({
-          hero: res.data[0]
-        })
-      )
+      .then(res => this.setState(res.data[0]))
       .catch(err => {
         console.log(err);
       });
@@ -53,15 +51,15 @@ export default class Team extends Component {
       {
         id: this.state.id,
         charname: this.state.charname,
-        level: this.state.level
+        sfSociety: this.state.sfSociety,
+        level: this.state.level,
+        race: this.state.race,
+        theme: this.state.theme,
+        speed: this.state.speed
       },
       options
     )
-      .then(res =>
-        this.setState({
-          hero: res.data
-        })
-      )
+      .then(res => this.setState(res.data))
       .catch(err => alert('Something went wrong'));
   }
 
@@ -70,47 +68,90 @@ export default class Team extends Component {
       <div>
         <div>
           <h2>Személyes adatok</h2>
-          <form onSubmit={e => this.submit(e)}>
+          <form className="charSheet" onSubmit={e => this.submit(e)}>
             <div className="form-row">
-              <div className="form-group col">
+              <div className="form-group col-md-6">
                 <label>
                   Karakter neve:
                   <input
                     className="form-control"
                     type="text"
                     name="charname"
-                    placeholder={this.state.hero.charname}
+                    placeholder={this.state.charname}
                     onChange={e => this.change(e)}
                     value={this.state.charname}
                   />
                 </label>
               </div>
-              <div className="form-group col">
+              <div className="form-group col-md-1 col-sm-2">
                 <label>
                   Szint:
                   <input
                     className="form-control"
                     type="number"
                     name="level"
-                    placeholder={this.state.hero.level}
+                    placeholder={this.state.level}
                     onChange={e => this.change(e)}
                     value={this.state.level}
+                  />
+                </label>
+              </div>
+              <div className="form-group col-md-5 col-sm-10">
+                <label>
+                  Starfinder közösség:
+                  <input
+                    className="form-control"
+                    type="text"
+                    name="sfSociety"
+                    placeholder={this.state.sfSociety}
+                    onChange={e => this.change(e)}
+                    value={this.state.sfSociety}
                   />
                 </label>
               </div>
             </div>
 
             <div className="form-row">
-              <div className="form-group col">
+              <div className="form-group col-sm">
                 <label>
                   Kasztok:
                   <textarea
                     className="form-control notes"
                     name="class"
-                    rows="3"
-                    placeholder={this.state.hero.class}
+                    rows="1"
+                    placeholder={this.state.class}
                     value={this.state.class}
                     onChange={e => this.change(e)}
+                  />
+                </label>
+              </div>
+              {/* <div className="form-group -sm">
+                Speed:
+                <div>{this.state.speed}</div>
+              </div> */}
+              <div className="form-group col-sm">
+                <label>
+                  Háttér:
+                  <input
+                    className="form-control"
+                    type="text"
+                    name="theme"
+                    placeholder={this.state.theme}
+                    onChange={e => this.change(e)}
+                    value={this.state.theme}
+                  />
+                </label>
+              </div>
+              <div className="form-group col-sm">
+                <label>
+                  Faj:
+                  <input
+                    className="form-control"
+                    type="text"
+                    name="race"
+                    placeholder={this.state.race}
+                    onChange={e => this.change(e)}
+                    value={this.state.race}
                   />
                 </label>
               </div>
@@ -125,18 +166,18 @@ export default class Team extends Component {
           </form>
         </div>
 
-        <div>Karakter név: {this.state.hero.charname}</div>
-        <div>Starfinder közösség: {this.state.hero.sfSociety}</div>
-        <div>Kaszt: {this.state.hero.class}</div>
-        <div>Szint: {this.state.hero.level}</div>
-        <div>Faj: {this.state.hero.race}</div>
-        <div>Háttér: {this.state.hero.theme}</div>
-        <div>Sebesség: {this.state.hero.speed}</div>
-        <div>Nem: {this.state.hero.gender}</div>
-        <div>Szülőbolygó: {this.state.hero.homeWorld}</div>
-        <div>Jellem: {this.state.hero.aligment}</div>
-        <div>Vallás: {this.state.hero.diety}</div>
-        <div>Játékos neve: {this.state.hero.player}</div>
+        <div>Karakter név: {this.state.charname}</div>
+        <div>Starfinder közösség: {this.state.sfSociety}</div>
+        <div>Kaszt: {this.state.class}</div>
+        <div>Szint: {this.state.level}</div>
+        <div>Faj: {this.state.race}</div>
+        <div>Háttér: {this.state.theme}</div>
+        <div>Sebesség: {this.state.speed}</div>
+        <div>Nem: {this.state.gender}</div>
+        <div>Szülőbolygó: {this.state.homeWorld}</div>
+        <div>Jellem: {this.state.aligment}</div>
+        <div>Vallás: {this.state.diety}</div>
+        <div>Játékos neve: {this.state.player}</div>
       </div>
     );
   }
