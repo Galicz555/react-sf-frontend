@@ -1,20 +1,16 @@
 import { FETCH_ID } from '../actions/types';
 
 const initialState = {
-  items: [],
-  item: {}
+  item: ''
 }
 
 export default function(state = initialState, action) {
   switch (action.type) {
     case FETCH_ID:
-      return {
+      return ({
         ...state,
-        items: action.payload
-      }
-      
-    //   break;
-  
+        item: action.payload
+      })  
     default:
       return state;
   }

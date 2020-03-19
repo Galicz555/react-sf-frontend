@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
+import { connect } from 'react-redux';
+import { fetchId } from  '../../actions/idActions';
 import propTypes from 'prop-types';
 import person from '../../model/person';
 
-export default class Team extends Component {
+class Team extends Component {
   constructor(props) {
     super(props);
 
@@ -33,7 +35,9 @@ export default class Team extends Component {
   }
 
   componentDidMount() {
-    Axios.get('http://localhost:5000/hero/1', {
+    this.props.fetchId();
+
+    Axios.get(`http://localhost:5000/hero/${this.props.userId}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('access_token')}`
       }
@@ -242,7 +246,7 @@ export default class Team extends Component {
             </label>
           </div>
         </form>
-        <div>lol{this.props.id}</div>
+            <div>lol{this.props.userId}</div>
       </div>
     );
   }
@@ -251,3 +255,9 @@ export default class Team extends Component {
 // Team.propTypes = {
 //   hero: propTypes.person
 // };
+
+const mapStateToProps = state => ({
+  userId: state.userId.item
+})
+
+export default connect(mapStateToProps, { fetchId })(Team)

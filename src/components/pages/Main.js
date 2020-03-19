@@ -7,21 +7,17 @@ class Main extends Component {
     this.props.fetchId();
   }
 
-  activateLasers(){
-    console.log(mapStateToProps)
-  }
-
   render() {
     return (
-      <div onClick={this.activateLasers}>
-        Main
+      <div>
+        Main{this.props.userId}
       </div>
     )
   }
 }
 
 const mapStateToProps = state => ({
-  userId: state.userId.items
+  userId: state.userId.item
 })
 
 export default connect(mapStateToProps, { fetchId })(Main)

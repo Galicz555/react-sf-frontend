@@ -17,8 +17,6 @@ export const fetchId = () => dispatch => {
         payload: id.data
       })
     )
-
-
     .catch(err => {
       localStorage.removeItem('access_token');
       localStorage.removeItem('refresh_token');
