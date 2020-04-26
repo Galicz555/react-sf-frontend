@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 import { connect } from 'react-redux';
-import { fetchId } from  '../../actions/idActions';
+import { fetchId } from '../../actions/idActions';
 import propTypes from 'prop-types';
 import person from '../../model/person';
 
@@ -246,7 +246,7 @@ class Team extends Component {
             </label>
           </div>
         </form>
-            <div>lol{this.props.userId}</div>
+        <div>lol{this.props.userId}</div>
       </div>
     );
   }
