@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import battleship from '../../assets/images/battleship.jpg'
 
 export default function Header() {
   return (
@@ -8,7 +9,7 @@ export default function Header() {
     >
       <Link className="navbar-brand" to="/">
         <img
-          src="https://images5.alphacoders.com/587/thumb-1920-587597.jpg"
+          src={battleship}
           width="30"
           height="30"
           alt="not found"
