@@ -36,12 +36,13 @@ class Team extends Component {
 
   componentDidMount() {
     this.props.fetchId();
-
-    Axios.get(`http://localhost:5000/hero/${this.props.userId}`, {
+    const options = {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('access_token')}`
       }
-    })
+    };
+
+    Axios.get(`http://localhost:5000/hero/${this.props.userId}`, options)
       .then(res => this.setState(res.data[0]))
       .catch(err => {
         console.log(err);
