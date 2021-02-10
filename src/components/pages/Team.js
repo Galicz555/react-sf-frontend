@@ -10,7 +10,7 @@ class Team extends Component {
     super(props);
 
     this.state = {
-      id: 1,
+      userId: '',
       charname: '',
       sfSociety: '',
       level: '',
@@ -42,7 +42,7 @@ class Team extends Component {
       }
     };
 
-    Axios.get(`http://localhost:5000/hero/${this.props.userId}`, options)
+    Axios.get(`http://localhost:5000/heroes/${this.props.userId}`, options)
       .then(res => this.setState(res.data[0]))
       .catch(err => {
         console.log(err);
@@ -57,9 +57,9 @@ class Team extends Component {
       }
     };
     Axios.put(
-      'http://localhost:5000/hero/:id',
+      'http://localhost:5000/hero',
       {
-        id: this.state.id,
+        userId: this.state.userId,
         charname: this.state.charname,
         sfSociety: this.state.sfSociety,
         level: this.state.level,
