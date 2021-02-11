@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './Header.sass';
 import battleship from '../../assets/images/battleship.jpg'
 
 export default function Header() {

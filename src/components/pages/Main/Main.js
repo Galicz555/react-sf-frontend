@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchId } from  '../../actions/idActions';
+import { fetchId } from  '../../../actions/idActions';
 
 class Main extends Component {
   componentDidMount() {

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 
 import React, { Component } from 'react';
 import Axios from 'axios';
+import './Login.sass';
 
 export default class Login extends Component {
   constructor(props) {
