@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchId } from  '../../../actions/idActions';
+import './Main.sass';
 
 class Main extends Component {
   componentDidMount() {
@@ -10,6 +11,14 @@ class Main extends Component {
   render() {
     return (
       <div>
+        <div className='mainBackGround'>
+          <div className='mainBackGround__leftSide'>
+            asd
+          </div>
+          <div className='mainBackGround__rightSide'>
+            fdsa
+          </div>
+        </div>
         Main{this.props.userId}
       </div>
     )
