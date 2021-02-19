@@ -67,7 +67,7 @@ class Oneliners extends Component {
   }
 
   ListItem(item) {
-    return <li>{item.value[0]}: {item.value[1]}</li>;
+    return <li>{(item.value[0]).replace(/'_'/g, ' ')}: {item.value[1]}</li>;
   }
 
   Spellflasher() {
