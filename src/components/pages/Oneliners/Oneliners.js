@@ -10,42 +10,30 @@ class Oneliners extends Component {
 
     this.state = {
       spell: {},
-      spellString: "",
-      spellHuString: "",
-      spellRequest: "",
-      hunSpell: {
-      },
+      spellRequest: '',
+      classSpellListRequest: 'Barbár',
+      hunSpell: {},
+      classSpellList: [],
     };
 
     this.change = this.change.bind(this);
+    this.handleChange = this.handleChange.bind(this)
     this.submit = this.submit.bind(this);
-    this.translator = this.translator.bind(this);
+    this.spellTranslator = this.spellTranslator.bind(this);
     this.Spellflasher = this.Spellflasher.bind(this);
     this.ListItem = this.ListItem.bind(this);
-    this.receivedSpell = {
-      areaOfEffect: "gömb 20",
-      castingTime: "1 akció",
-      component: "V, S, M",
-      concentration: "hamis",
-      damageAtSlotLevel: "LvL3: 8d6, LvL4: 9d6, LvL5: 10d6, LvL6: 11d6, LvL7: 12d6, LvL8: 13d6, LvL9: 14d6",
-      damageType: "Tűz",
-      dc: "DEX fele",
-      desc: "Egy fényes csík villog a mutatóujjától egy olyan pontig, amelyet a hatótávolságon belül választott, majd alacsony ordítással lángrobbanássá válik. Minden lénynek egy 20 láb sugarú gömbben, amelynek központja ezen a ponton van, ügyességi megtakarítást kell tennie. A cél 8d6 tűzkárt okoz egy sikertelen mentéskor, vagy fele annyi sebzést egy sikeresen., A tűz sarkokon átterjed. Meggyújtja a területen gyúlékony tárgyakat, amelyeket nem viselnek vagy hordanak.",
-      duration: "Pillanatnyi",
-      higherLevel: "Ha ezt a varázslatot egy 4. vagy annál magasabb szintű varázslattal használod, a sebzés 1d6-mal nő minden egyes 3. szint fölötti slot szintnél.",
-      level: "3",
-      material: "Egy apró golyó denevér guanóval és kénnel.",
-      name: "Tűzgömb",
-      range: "150 láb",
-      ritual: "hamis",
-      schoolName: "Felidézés"
-    }
+    this.spellListGetter = this.spellListGetter.bind(this);
+    this.receivedSpell = {}
   }
 
   change(element) {
     this.setState({
       [element.target.name]: element.target.value
     });
+  }
+
+  handleChange(event) {
+    this.setState({classSpellListRequest: event.target.value});
   }
 
   componentDidMount() {
@@ -67,7 +55,7 @@ class Oneliners extends Component {
   }
 
   ListItem(item) {
-    return <li>{(item.value[0]).replace(/'_'/g, ' ')}: {item.value[1]}</li>;
+    return <li>{(item.value[0]).replace(/_/g, ' ')}: {item.value[1]}</li>;
   }
 
   Spellflasher() {
@@ -83,7 +71,7 @@ class Oneliners extends Component {
 
   }
 
-  translator() {
+  spellTranslator() {
     //local teszt
     /*this.setState(prevState => {
       let hunSpell = Object.assign({}, prevState.hunSpell);
@@ -116,30 +104,62 @@ class Oneliners extends Component {
     });
   }
 
+  spellListGetter() {
+    Axios.get(`https://www.dnd5eapi.co/api/classes/${this.state.classSpellListRequest}/spells/`)
+      .then(res => {
+        this.setState({
+          classSpellList: res.data
+        })
+        console.log(this.state)
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
   render() {
     return (
     <div>
-      <form className="spellInput" onSubmit={element => this.submit(element)}>
+      <form className='spellInput' onSubmit={element => this.submit(element)}>
         <label>
           Varázslatok:
           <input
-            type="string"
-            name="spellRequest"
-            placeholder="/fireball"
+            type='string'
+            name='spellRequest'
+            placeholder='/fireball'
             onChange={element => this.change(element)}
             value={this.state.spellRequest}
           />
         </label>
-        <button className="btn btn-primary btn-block" type="submit">
+        <button className='btn btn-primary btn-block' type='submit'>
           Frissítés
         </button>
       </form>
-      <button className="btn btn-primary btn-block" type="button" onClick={this.translator}>
-          Fordítás
-        </button>
-        <this.Spellflasher />
+      <button className='btn btn-primary btn-block' type='button' onClick={this.spellTranslator}>
+        Fordítás
+      </button>
+      <this.Spellflasher />
       <div>
-
+      <label>
+        Válassz kasztot:
+        <select value={this.state.classSpellListRequest} onChange={this.handleChange}>
+          <option value="barbarian">Barbár</option>
+          <option value="bard">Bárd</option>
+          <option value="cleric">Pap</option>
+          <option value="druid">Druida</option>
+          <option value="fighter">Harcos</option>
+          <option value="monk">Szerzetes</option>
+          <option value="paladin">Szent lovag</option>
+          <option value="ranger">Vándor</option>
+          <option value="rogue">Kalandor</option>
+          <option value="sorcerer">Mágus</option>
+          <option value="warlock">Boszorkány</option>
+          <option value="wizard">Varázsló</option>
+        </select>
+      </label>
+      <button className='btn btn-primary btn-block' type='button' onClick={this.spellListGetter}>
+        Varázskönyv
+      </button>
       </div>
     </div>
     )
